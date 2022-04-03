@@ -126,12 +126,11 @@ header {
 }
 /***************************************************** HERO SECTION *******************************/
 .hero-sec {
-  /* border: 1px solid red; */
-  height: 100vh;
+  height: auto;
 }
 .hero-row {
   /* border: 2px solid red; */
-  height: inherit;
+  height: 100vh;
   display: flex;
   justify-content: space-around;
   align-items: center;
