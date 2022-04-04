@@ -71,7 +71,7 @@ const LightBox = (num) => {
               fillRule="evenodd"
             />
           </svg>
-          <img className="big-sneaker lightBox-sneaker" src={url} />
+          <img alt="img" className="big-sneaker lightBox-sneaker" src={url} />
           <svg
             onClick={() => {
               let num;
@@ -100,6 +100,7 @@ const LightBox = (num) => {
             className={`small-sneaker-div ${image2 == 1 && "active-sneaker"}`}
           >
             <img
+              alt="img"
               className={`small-sneaker`}
               onClick={() => {
                 setImage2(1);
@@ -111,6 +112,7 @@ const LightBox = (num) => {
             className={`small-sneaker-div ${image2 == 2 && "active-sneaker"}`}
           >
             <img
+              alt="img"
               className={`small-sneaker`}
               onClick={() => {
                 setImage2(2);
@@ -122,6 +124,7 @@ const LightBox = (num) => {
             className={`small-sneaker-div ${image2 == 3 && "active-sneaker"}`}
           >
             <img
+              alt="img"
               className={`small-sneaker`}
               onClick={() => {
                 setImage2(3);
@@ -133,6 +136,7 @@ const LightBox = (num) => {
             className={`small-sneaker-div ${image2 == 4 && "active-sneaker"}`}
           >
             <img
+              alt="img"
               className={`small-sneaker`}
               onClick={() => {
                 setImage2(4);

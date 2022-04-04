@@ -49,6 +49,7 @@ const Sneakers = () => {
         </svg>
         <img
           className="big-sneaker"
+          alt="img"
           onClick={() => {
             document
               .querySelector(".lightBox-div")
@@ -84,6 +85,7 @@ const Sneakers = () => {
       <div className="sneakers-col sneakers-col2">
         <div className={`small-sneaker-div ${image == 1 && "active-sneaker"}`}>
           <img
+            alt="img"
             className={`small-sneaker`}
             onClick={() => {
               setImage(1);
@@ -93,6 +95,7 @@ const Sneakers = () => {
         </div>
         <div className={`small-sneaker-div ${image == 2 && "active-sneaker"}`}>
           <img
+            alt="img"
             className={`small-sneaker`}
             onClick={() => {
               setImage(2);
@@ -102,6 +105,7 @@ const Sneakers = () => {
         </div>
         <div className={`small-sneaker-div ${image == 3 && "active-sneaker"}`}>
           <img
+            alt="img"
             className={`small-sneaker`}
             onClick={() => {
               setImage(3);
@@ -111,6 +115,7 @@ const Sneakers = () => {
         </div>
         <div className={`small-sneaker-div ${image == 4 && "active-sneaker"}`}>
           <img
+            alt="img"
             className={`small-sneaker`}
             onClick={() => {
               setImage(4);
