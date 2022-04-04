@@ -79,7 +79,7 @@ const Sneakers = () => {
             fillRule="evenodd"
           />
         </svg>
-        <LightBox imageTrack={image} />;
+        <LightBox imageTrack={image} />
       </div>
       <div className="sneakers-col sneakers-col2">
         <div className={`small-sneaker-div ${image == 1 && "active-sneaker"}`}>

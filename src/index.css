@@ -76,7 +76,7 @@ header {
 .nav-link {
   text-decoration: none;
   color: var(--DarkGrayishBlue);
-  padding-bottom: 1.5rem;
+  padding-bottom: 1.4rem;
 }
 .nav-link:hover,
 .nav-link:focus {
