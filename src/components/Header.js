@@ -1,13 +1,16 @@
 import headerImg from "../images/image-avatar.png";
-import { useEffect } from "react";
+import { useEffect, useRef, useState } from "react";
 const Header = (props) => {
+  const myRef = useRef(null);
+  const [flag, setFlag] = useState(false);
   useEffect(() => {
-    if (props.cartItems == 0) {
-      document.querySelector(".cart-notification").style.display = "none";
+    if (props.cartItems === 0) {
+      myRef.current.style.display = "none";
     } else {
-      document.querySelector(".cart-notification").style.display = "block";
+      myRef.current.style.display = "block";
     }
   }, [props.cartItems]);
+
   return (
     <header>
       <div className="header-div">
@@ -19,6 +22,11 @@ const Header = (props) => {
             <svg
               className="hamburger"
               onClick={() => {
+                setFlag(!flag);
+                // Here I use the dom bcs I can't do it without this. this operation
+                // needs a dom which is not in here but in another component & I can't
+                // use the state to change its state bcs its state is connected to parent
+                // & thats'why I can't change the state bcs in props its read-only property.
                 document
                   .querySelector(".nav-list")
                   .classList.toggle("nav-list-toggle");
@@ -35,14 +43,14 @@ const Header = (props) => {
               <path d="M 3 7 A 1.0001 1.0001 0 1 0 3 9 L 27 9 A 1.0001 1.0001 0 1 0 27 7 L 3 7 z M 3 14 A 1.0001 1.0001 0 1 0 3 16 L 27 16 A 1.0001 1.0001 0 1 0 27 14 L 3 14 z M 3 21 A 1.0001 1.0001 0 1 0 3 23 L 27 23 A 1.0001 1.0001 0 1 0 27 21 L 3 21 z" />
             </svg>
 
-            <ul className="nav-list">
+            <ul className={`nav-list ${flag ? "nav-list-toggle" : ""}`}>
               <li className="nav-item">
                 <span
                   onClick={() => {
+                    setFlag(!flag);
                     document
                       .querySelector(".nav-list")
                       .classList.toggle("nav-list-toggle");
-
                     document
                       .querySelector(".shadow")
                       .classList.toggle("shadow-toggle2");
@@ -89,7 +97,9 @@ const Header = (props) => {
                     .classList.toggle("cart-box-toggle");
                 }}
               >
-                <span className="cart-notification">{props.cartItems}</span>
+                <span ref={myRef} className="cart-notification">
+                  {props.cartItems}
+                </span>
                 <svg
                   className="cart"
                   width="22"

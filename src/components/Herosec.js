@@ -1,19 +1,22 @@
 import Sneakers from "./Sneakers";
 import Header from "./Header";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import cartImg from "../images/img1-icon.jpg";
 const Herosec = () => {
   const [items, setItems] = useState(0);
   const [cart, setCart] = useState(0);
+  const myRef1 = useRef(null);
+  const myRef2 = useRef(null);
+  const myRef3 = useRef(null);
   useEffect(() => {
     if (cart == 0) {
-      document.querySelector(".cart-item-div").style.display = "none";
-      document.querySelector(".checkout-div").style.display = "none";
-      document.querySelector(".empty-para").style.display = "block";
+      myRef1.current.style.display = "none";
+      myRef2.current.style.display = "none";
+      myRef3.current.style.display = "block";
     } else {
-      document.querySelector(".cart-item-div").style.display = "flex";
-      document.querySelector(".checkout-div").style.display = "block";
-      document.querySelector(".empty-para").style.display = "none";
+      myRef1.current.style.display = "flex";
+      myRef2.current.style.display = "block";
+      myRef3.current.style.display = "none";
     }
   });
 
@@ -27,8 +30,10 @@ const Herosec = () => {
           <hr className="cart-hr" />
         </span>
 
-        <p className="cart-para empty-para">Your cart is empty.</p>
-        <div className="cart-item-div">
+        <p ref={myRef3} className="cart-para empty-para">
+          Your cart is empty.
+        </p>
+        <div ref={myRef1} className="cart-item-div">
           <div className="cart-item-col1">
             <img src={cartImg} className="cart-item-img" />
           </div>
@@ -59,7 +64,7 @@ const Herosec = () => {
             </svg>
           </div>
         </div>
-        <div className="checkout-div">
+        <div ref={myRef2} className="checkout-div">
           <button className="checkout-btn">checkout</button>
         </div>
       </div>

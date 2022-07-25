@@ -62,9 +62,11 @@ header {
 }
 .hamburger {
   display: none;
+  cursor: pointer;
 }
 .close-hamburger {
   display: none;
+  cursor: pointer;
 }
 .nav-list {
   list-style-type: none;
