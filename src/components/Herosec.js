@@ -8,6 +8,10 @@ const Herosec = () => {
   const myRef1 = useRef(null);
   const myRef2 = useRef(null);
   const myRef3 = useRef(null);
+  const shadowRef = useRef(null);
+  const shadowFu = function () {
+    return shadowRef.current;
+  };
   useEffect(() => {
     if (cart == 0) {
       myRef1.current.style.display = "none";
@@ -18,12 +22,13 @@ const Herosec = () => {
       myRef2.current.style.display = "block";
       myRef3.current.style.display = "none";
     }
+    // console.log(shadowRef.current);
   });
 
   return (
     <div className="hero-sec content-div">
-      <Header cartItems={cart} />
-      <div className="shadow"></div>
+      <Header cartItems={[cart, shadowFu]} />
+      <div ref={shadowRef} className="shadow"></div>
       <div className="cart-box">
         <span className="cart-para cart-heading">
           Cart

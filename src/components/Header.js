@@ -4,12 +4,12 @@ const Header = (props) => {
   const myRef = useRef(null);
   const [flag, setFlag] = useState(false);
   useEffect(() => {
-    if (props.cartItems === 0) {
+    if (props.cartItems[0] === 0) {
       myRef.current.style.display = "none";
     } else {
       myRef.current.style.display = "block";
     }
-  }, [props.cartItems]);
+  }, [props.cartItems[0]]);
 
   return (
     <header>
@@ -23,16 +23,7 @@ const Header = (props) => {
               className="hamburger"
               onClick={() => {
                 setFlag(!flag);
-                // Here I use the dom bcs I can't do it without this. this operation
-                // needs a dom which is not in here but in another component & I can't
-                // use the state to change its state bcs its state is connected to parent
-                // & thats'why I can't change the state bcs in props its read-only property.
-                document
-                  .querySelector(".nav-list")
-                  .classList.toggle("nav-list-toggle");
-                document
-                  .querySelector(".shadow")
-                  .classList.toggle("shadow-toggle2");
+                props.cartItems[1]().classList.toggle("shadow-toggle2");
               }}
               fill="#000000"
               xmlns="http://www.w3.org/2000/svg"
@@ -48,12 +39,7 @@ const Header = (props) => {
                 <span
                   onClick={() => {
                     setFlag(!flag);
-                    document
-                      .querySelector(".nav-list")
-                      .classList.toggle("nav-list-toggle");
-                    document
-                      .querySelector(".shadow")
-                      .classList.toggle("shadow-toggle2");
+                    props.cartItems[1]().classList.toggle("shadow-toggle2");
                   }}
                   className="close-hamburger"
                 >
@@ -98,7 +84,7 @@ const Header = (props) => {
                 }}
               >
                 <span ref={myRef} className="cart-notification">
-                  {props.cartItems}
+                  {props.cartItems[0]}
                 </span>
                 <svg
                   className="cart"
